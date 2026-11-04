@@ -1,0 +1,118 @@
+/* Kedhar Swaminathan — portfolio
+   Type: Newsreader (questions, headings) + Public Sans (everything else).
+   Public Sans was designed for U.S. government sites, a nod to the public data these projects use. */
+
+:root {
+  --paper: #f6f8fa;
+  --ink: #14213d;
+  --slate: #50607a;
+  --rule: #d5dce5;
+  --accent: #2e5bba;
+  --accent-soft: #e3eaf7;
+  --measure: 40rem;
+  --serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --sans: "Public Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0f1726;
+    --ink: #e6ecf4;
+    --slate: #9aa8bc;
+    --rule: #26324a;
+    --accent: #8aaaf0;
+    --accent-soft: #1a2640;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+a { color: var(--accent); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+.wrap { max-width: var(--measure); margin: 0 auto; padding: 0 1rem; }
+
+/* Header */
+.site-header { border-bottom: 1px solid var(--rule); }
+.site-header .wrap {
+  display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem;
+  align-items: baseline; justify-content: space-between;
+  padding-top: 1.1rem; padding-bottom: 1.1rem;
+}
+.wordmark { font-family: var(--serif); font-size: 1.2rem; font-weight: 600; color: var(--ink); text-decoration: none; }
+.site-nav { display: flex; gap: 1.25rem; font-size: 0.95rem; }
+.site-nav a { color: var(--slate); text-decoration: none; }
+.site-nav a:hover, .site-nav a[aria-current="page"] { color: var(--ink); text-decoration: underline; }
+
+/* Intro */
+.intro { padding: 3.5rem 0 1rem; }
+.intro p {
+  font-family: var(--serif); font-size: clamp(1.5rem, 4.2vw, 2rem);
+  line-height: 1.3; margin: 0; font-weight: 400;
+}
+.intro .sub { font-family: var(--sans); font-size: 1rem; color: var(--slate); margin-top: 1rem; line-height: 1.6; }
+
+/* Project list: each project is introduced by its question */
+.projects { list-style: none; margin: 2.5rem 0 0; padding: 0; }
+.project { padding: 2rem 0; border-top: 1px solid var(--rule); }
+.project:last-child { border-bottom: 1px solid var(--rule); }
+.project-name { font-size: 0.95rem; color: var(--slate); margin: 0 0 0.4rem; }
+.project h2 { font-family: var(--serif); font-size: 1.6rem; line-height: 1.25; font-weight: 500; margin: 0 0 1.1rem; }
+.project h2 a { color: var(--ink); text-decoration: none; }
+.project h2 a:hover { color: var(--accent); }
+.project-link { font-size: 0.95rem; }
+
+/* Key numbers */
+.numbers {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem; margin: 0 0 1.1rem; padding: 0;
+}
+.numbers div { border-left: 2px solid var(--accent); padding-left: 0.75rem; }
+.numbers dt { font-family: var(--serif); font-size: 1.35rem; font-weight: 600; line-height: 1.2; order: -1; }
+.numbers dd { margin: 0.2rem 0 0; font-size: 0.85rem; color: var(--slate); line-height: 1.4; }
+.numbers div { display: flex; flex-direction: column; }
+.numbers.single { grid-template-columns: 1fr; }
+
+/* Sections */
+section { padding: 3rem 0 0; }
+section > h2, .detail h2 { font-family: var(--serif); font-size: 1.35rem; font-weight: 600; margin: 0 0 0.75rem; }
+p { margin: 0 0 1rem; }
+.muted { color: var(--slate); }
+
+.contact-list { list-style: none; padding: 0; margin: 0; }
+.contact-list li { padding: 0.35rem 0; }
+.contact-list span { display: inline-block; min-width: 5.5rem; color: var(--slate); }
+
+/* Detail pages */
+.detail { padding: 2.5rem 0 0; }
+.back { font-size: 0.95rem; }
+.detail h1 { font-family: var(--serif); font-size: clamp(1.75rem, 5vw, 2.4rem); line-height: 1.2; font-weight: 500; margin: 0.4rem 0 1.75rem; }
+.detail .project-name { margin-top: 1.75rem; }
+.detail .numbers { margin-bottom: 2.25rem; }
+.detail .block { margin-bottom: 2rem; }
+.finding { font-family: var(--serif); font-size: 1.2rem; line-height: 1.5; }
+.repo-link {
+  display: inline-block; padding: 0.6rem 1rem; border: 1px solid var(--accent);
+  border-radius: 4px; text-decoration: none; font-weight: 500;
+}
+.repo-link:hover { background: var(--accent-soft); }
+
+/* Footer */
+.site-footer { margin-top: 4rem; border-top: 1px solid var(--rule); padding: 1.5rem 0 2.5rem; font-size: 0.9rem; color: var(--slate); }
+
+@media (max-width: 30rem) {
+  .numbers { grid-template-columns: 1fr; gap: 0.75rem; }
+  .project h2 { font-size: 1.4rem; }
+}
